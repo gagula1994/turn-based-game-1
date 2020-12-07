@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,19 +9,18 @@ public class BuildingUIScript : MonoBehaviour
     public Text description;
     public Text requredBuilding;
     public Text requiredTech;
-    public GameObject[] buildingsName;
-    public GameObject[] buildingsCost;
-    public GameObject[] buildingsTime;
-    public GameObject[] buildingsInfo;
+    public GameObject buildingUI;
+    public List<GameObject> buildingsUI;
     public CityScript tempCity;
 
     void Awake()
     {
         ClosePanel();
-        buildingsName = GameObject.FindGameObjectsWithTag("BuildingText");
-        buildingsCost = GameObject.FindGameObjectsWithTag("CostText");
-        buildingsTime = GameObject.FindGameObjectsWithTag("BuildTimeText");
-        buildingsInfo = GameObject.FindGameObjectsWithTag("BuildingInfoButton");
+
+        for (int i = 0; i < buildingUI.transform.childCount; i++)
+        {
+            buildingsUI.Add(buildingUI.transform.GetChild(i).gameObject);
+        }
     }
 
     public void SetNameCostTime(CityScript city)
@@ -29,15 +29,24 @@ public class BuildingUIScript : MonoBehaviour
 
         for (int i = 0; i < city.buildings.Count; i++)
         {
-            buildingsName[i].GetComponent<Text>().text = city.buildings[i].buildingName;
-            buildingsCost[i].GetComponent<Text>().text = "Cost: " + city.buildings[i].cost + " gold";
-            buildingsTime[i].GetComponent<Text>().text = "Build time: " + Math.Ceiling(city.buildings[i].buildTime / city.buildingSpeed) + " turns";
             CityBuilding temp = city.buildings[i];
             temp.id = i;
-            buildingsInfo[i].GetComponent<Button>().onClick.RemoveAllListeners();
-            buildingsInfo[i].GetComponent<Button>().onClick.AddListener(() => {
+
+            buildingsUI[i].transform.Find("BuildingText").GetComponent<Text>().text = city.buildings[i].buildingName;
+            buildingsUI[i].transform.Find("CostText").GetComponent<Text>().text = "Cost: " + city.buildings[i].cost + " gold";
+            buildingsUI[i].transform.Find("BuildTimeText").GetComponent<Text>().text = "Build time: " + Math.Ceiling(city.buildings[i].buildTime / city.buildingSpeed) + " turns";
+            buildingsUI[i].transform.Find("BuildingInfoButton").GetComponent<Button>().onClick.RemoveAllListeners();
+            buildingsUI[i].transform.Find("BuildingInfoButton").GetComponent<Button>().onClick.AddListener(() => {
                 OpenPanel(temp);
             });
+            buildingsUI[i].transform.Find("BuildingButton").GetComponent<Button>().onClick.RemoveAllListeners();
+            buildingsUI[i].transform.Find("BuildingButton").GetComponent<Button>().onClick.AddListener(() =>
+            {
+                temp.status = city.buildings[temp.id].status;
+                city.BuildButton(temp, buildingsUI[temp.id].transform.Find("BuildingButton").GetComponent<Button>());
+            });
+
+            city.buildings[i] = temp;
         }
     }
 

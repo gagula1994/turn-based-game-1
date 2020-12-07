@@ -2260,7 +2260,7 @@ MonoBehaviour:
     construction: 0
     requirement: 12
     id: 22
-  buildingButton: []
+  bus: {fileID: 1723751453}
   player: {fileID: 567531258}
   panel: {fileID: 1298224766}
   tempBuilding:
@@ -6102,6 +6102,10 @@ PrefabInstance:
       propertyPath: requiredTech
       value: 
       objectReference: {fileID: 1009474524}
+    - target: {fileID: 4070143344321664243, guid: 74ba96c752cf9894398e0bda25be68e5, type: 3}
+      propertyPath: buildingUI
+      value: 
+      objectReference: {fileID: 1921054959}
     - target: {fileID: 4816822174692350261, guid: 74ba96c752cf9894398e0bda25be68e5, type: 3}
       propertyPath: m_Name
       value: BuildingsUI
@@ -11265,7 +11269,7 @@ MonoBehaviour:
     construction: 0
     requirement: 12
     id: 22
-  buildingButton: []
+  bus: {fileID: 1723751453}
   player: {fileID: 567531258}
   panel: {fileID: 1298224766}
   tempBuilding:
@@ -11739,7 +11743,7 @@ MonoBehaviour:
     construction: 0
     requirement: 12
     id: 22
-  buildingButton: []
+  bus: {fileID: 1723751453}
   player: {fileID: 567531258}
   panel: {fileID: 1298224766}
   tempBuilding:
@@ -13441,7 +13445,7 @@ MonoBehaviour:
     construction: 0
     requirement: 12
     id: 22
-  buildingButton: []
+  bus: {fileID: 1723751453}
   player: {fileID: 567531258}
   panel: {fileID: 1298224766}
   tempBuilding:
@@ -14508,7 +14512,7 @@ MonoBehaviour:
     construction: 0
     requirement: 12
     id: 22
-  buildingButton: []
+  bus: {fileID: 1723751453}
   player: {fileID: 567531258}
   panel: {fileID: 1298224766}
   tempBuilding:
@@ -17342,7 +17346,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -13.749756, y: -65}
+  m_AnchoredPosition: {x: -13.749512, y: -65}
   m_SizeDelta: {x: -27.500122, y: -130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1234871762
@@ -23951,7 +23955,7 @@ MonoBehaviour:
     construction: 0
     requirement: 12
     id: 22
-  buildingButton: []
+  bus: {fileID: 1723751453}
   player: {fileID: 567531258}
   panel: {fileID: 1298224766}
   tempBuilding:
@@ -24513,7 +24517,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4070143344321664243, guid: 74ba96c752cf9894398e0bda25be68e5, type: 3}
   m_PrefabInstance: {fileID: 409040341}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1921054959}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5fc86b039cb43a47a08af0bb2c2274c, type: 3}
@@ -26078,6 +26082,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902142494}
   m_CullTransparentMesh: 0
+--- !u!1 &1921054959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4816822174692350261, guid: 74ba96c752cf9894398e0bda25be68e5, type: 3}
+  m_PrefabInstance: {fileID: 409040341}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1924680499
 GameObject:
   m_ObjectHideFlags: 0
@@ -27402,7 +27411,7 @@ MonoBehaviour:
     construction: 0
     requirement: 12
     id: 22
-  buildingButton: []
+  bus: {fileID: 1723751453}
   player: {fileID: 567531258}
   panel: {fileID: 1298224766}
   tempBuilding:
@@ -27926,7 +27935,7 @@ MonoBehaviour:
     construction: 0
     requirement: 12
     id: 22
-  buildingButton: []
+  bus: {fileID: 1723751453}
   player: {fileID: 567531258}
   panel: {fileID: 1298224766}
   tempBuilding:

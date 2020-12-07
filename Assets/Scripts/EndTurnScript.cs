@@ -57,7 +57,7 @@ public class EndTurnScript : MonoBehaviour
             temp.id = i;
             CityBuilding tempBuilding = temp.buildings[id];
             tempBuilding.status = 2;
-            temp.buildingButton[id].SetActive(false);
+            temp.bus.buildingsUI[id].transform.Find("BuildingButton").gameObject.SetActive(false);
             temp.buildings[id] = tempBuilding;
             cities[temp.id] = temp;
         }

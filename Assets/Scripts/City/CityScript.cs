@@ -44,7 +44,7 @@ public class CityScript : MonoBehaviour
 
     [Header ("")]
     public List<CityBuilding> buildings;
-    public GameObject[] buildingButton;
+    public BuildingUIScript bus;
     public PlayerStats player;
     public DeletePanelScript panel;
     public CityBuilding tempBuilding;
@@ -53,7 +53,6 @@ public class CityScript : MonoBehaviour
 
     void Awake()
     {
-        buildingButton = GameObject.FindGameObjectsWithTag("BuildingButton");
         StatsModify();
     }
 
@@ -96,10 +95,10 @@ public class CityScript : MonoBehaviour
             inConstruction = building.id;
             ConstructionUpdate(building);
 
-            for (int i = 0; i < buildingButton.Length; i++)
+            for (int i = 0; i < bus.buildingsUI.Count; i++)
             {
-                if (buildingButton[i].GetComponentInChildren<Text>().text != "Destroy")
-                    buildingButton[i].GetComponent<Button>().interactable = false;
+                if (bus.buildingsUI[i].transform.Find("BuildingButton").GetComponentInChildren<Text>().text != "Destroy")
+                    bus.buildingsUI[i].transform.Find("BuildingButton").GetComponent<Button>().interactable = false;
             }
         }
     }
@@ -178,9 +177,9 @@ public class CityScript : MonoBehaviour
             if (buildings[i].requirement != "")
             {
                 tempReq = Int32.Parse(buildings[i].requirement);
-                if (buildings[tempReq].status == 2) buildingButton[i].GetComponent<Button>().interactable = true;
+                if (buildings[tempReq].status == 2) bus.buildingsUI[i].transform.Find("BuildingButton").GetComponent<Button>().interactable = true;
             }
-            else buildingButton[i].GetComponent<Button>().interactable = true;
+            else bus.buildingsUI[i].transform.Find("BuildingButton").GetComponent<Button>().interactable = true;
         }
     }
 

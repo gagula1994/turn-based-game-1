@@ -39,37 +39,22 @@ public class CityPanelScript : MonoBehaviour
             if (city.inConstruction != -1)
             {
                 if (city.buildings[i].status == 0)
-                    city.buildingButton[i].GetComponent<Button>().interactable = false;
+                    city.bus.buildingsUI[i].transform.Find("BuildingButton").GetComponent<Button>().interactable = false;
             }
             else
             {
-                int tempReq = -1;
-                city.buildingButton[i].GetComponent<Button>().interactable = true;
+                int tempReq;
+                city.bus.buildingsUI[i].transform.Find("BuildingButton").GetComponent<Button>().interactable = true;
 
                 if (city.buildings[i].requirement != "" && city.buildings[i].status == 0)
                 {
                     tempReq = Int32.Parse(city.buildings[i].requirement);
-                    if (city.buildings[tempReq].status != 2) city.buildingButton[i].GetComponent<Button>().interactable = false;
+                    if (city.buildings[tempReq].status != 2) city.bus.buildingsUI[i].transform.Find("BuildingButton").GetComponent<Button>().interactable = false;
                 }
             }
             
-            if (city.buildings[i].status == 0) city.buildingButton[i].GetComponentInChildren<Text>().text = "Build";
-            else city.buildingButton[i].GetComponentInChildren<Text>().text = "Destroy";
-        }
-
-        for (int i = 0; i < city.buildings.Count; i++)
-        {
-            CityBuilding temp = city.buildings[i];
-            temp.id = i;
-            city.buildingButton[i].GetComponent<Button>().onClick.RemoveAllListeners();
-
-            city.buildingButton[i].GetComponent<Button>().onClick.AddListener(() =>
-            {
-                temp.status = city.buildings[temp.id].status;
-                city.BuildButton(temp, city.buildingButton[temp.id].GetComponent<Button>());
-            });
-
-            city.buildings[i] = temp;
+            if (city.buildings[i].status == 0) city.bus.buildingsUI[i].transform.Find("BuildingButton").GetComponentInChildren<Text>().text = "Build";
+            else city.bus.buildingsUI[i].transform.Find("BuildingButton").GetComponentInChildren<Text>().text = "Destroy";
         }
     }
 

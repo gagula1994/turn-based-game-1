@@ -65,6 +65,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fc86b039cb43a47a08af0bb2c2274c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingsName: []
-  buildingsCost: []
-  buildingsTime: []
+  panel: {fileID: 0}
+  description: {fileID: 0}
+  requredBuilding: {fileID: 0}
+  requiredTech: {fileID: 0}
+  buildingUI: {fileID: 4816822174692350261}
+  buildingsUI: []
+  tempCity: {fileID: 0}
